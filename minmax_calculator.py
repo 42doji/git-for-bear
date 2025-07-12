@@ -1,11 +1,12 @@
 
 def input_handler():
     try:
-        inputs = input()
+        inputs = input("Enter numbers: ")
         splitted = inputs.split()
         casted = list(map(float, splitted))
     except ValueError:
         print("Error: Invalid arguments.")
+        return
     return casted 
     
     
@@ -24,7 +25,9 @@ def find_max(nums):
     return _max
 
 def main():
-    inputs = input_handler()
+    inputs = []
+    while not inputs:
+        inputs = input_handler()
     print(f"min: {find_min(inputs)}, max: {find_max(inputs)}")
 
 if __name__ == "__main__":
